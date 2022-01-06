@@ -5,7 +5,7 @@
 Explore US Bikeshare Data
 
 ### Description
-Describe what your project is about and what it does
+This project is part of the "Programming for Data Science with Python" Nanodegree Program from Udacity.
 
 ### Files used
 Include the files used
