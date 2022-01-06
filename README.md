@@ -11,4 +11,5 @@ This project is part of the "Programming for Data Science with Python" Nanodegre
 bikeshare.py
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Created with help from Udacity, Inc. 
+This repository is based on https://github.com/udacity/pdsnd_github
