@@ -94,7 +94,7 @@ def load_data(city, month, day):
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time']= pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
-    df['day_of_week']= df['Start Time'].dt.weekday_name
+    df['day_of_week']= df['Start Time'].dt.day_name()
     
     if month != 'all':
         df = df[df['month'] == month]
@@ -152,11 +152,11 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     total_travel_time = df['Trip Duration'].sum() / 60 / 60 / 24
-    total_travel_time = total_travel_time.round(2)
+    total_travel_time = round(total_travel_time, 2)
     print('The total time traveled in the selected period is {} days.'.format(total_travel_time))
 
     average_travel_time = df['Trip Duration'].mean() / 60
-    average_travel_time = average_travel_time.round(2)
+    average_travel_time = round(average_travel_time, 2)
     print('The average time traveled in the selected period is {} minutes.'.format(average_travel_time))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -195,12 +195,14 @@ def user_stats(df, city):
 def show_raw_data(df):
     """Shows 5 rows of the Pandas DataFrame 'df' at a time and prompts user to continue."""
     
+    pd.set_option('display.max_columns', 200)
     i=0
     choice = input('Would you like to see 5 lines of raw data? Type yes or no.\n').lower()
     while choice == 'yes' and i + 5 < df.shape[0]:
         print(df.iloc[i : i + 5])
         i += 5
-        choice = input('Would you like to see 5 more rows of raw data? Please type yes or no.\n').lower()    
+        print('-'*40)
+        choice = input('\nWould you like to see 5 more rows of raw data? Please type yes or no.\n').lower()
     
     print('-'*40)
 
