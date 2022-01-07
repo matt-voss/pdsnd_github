@@ -195,6 +195,7 @@ def user_stats(df, city):
 def show_raw_data(df):
     """Shows 5 rows of the Pandas DataFrame 'df' at a time and prompts user to continue."""
     
+    pd.set_option('display.max_columns', 200)
     i=0
     choice = input('Would you like to see 5 lines of raw data? Type yes or no.\n').lower()
     while choice == 'yes' and i + 5 < df.shape[0]:
