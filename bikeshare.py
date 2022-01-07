@@ -201,7 +201,8 @@ def show_raw_data(df):
     while choice == 'yes' and i + 5 < df.shape[0]:
         print(df.iloc[i : i + 5])
         i += 5
-        choice = input('Would you like to see 5 more rows of raw data? Please type yes or no.\n').lower()    
+        print('-'*40)
+        choice = input('\nWould you like to see 5 more rows of raw data? Please type yes or no.\n').lower()
     
     print('-'*40)
 
